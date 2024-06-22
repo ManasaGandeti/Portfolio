@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manasa Gandeti's Portfolio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <h1><strong>Manasa Gandeti's Portfolio</strong></h1>
+  </nav>
+  <div class="container">
+    
+    <div id="objective" class="section">
+      <h2>Career Objective</h2>
+      <p>Looking to work in an organization that can provide a variety of opportunities <br>
+      that allow me to expand my skills and knowledge while working towards achieving the organizational goals.</p>
+    </div>
+    
+    <div class="section">
+      <button class="collapsible">Personal Details</button>
+      <div class="content">
+        <p>Name: Manasa Gandeti</p>
+        <p>Email: manasagandeti@gmail.com</p>
+        <p>Phone: +919494931764</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <button class="collapsible">Education Details</button>
+      <div class="content">
+        <div class="subsection">
+          <h3>Secondary School Certificate (SSC)</h3>
+          <div class="sub-content">
+            <p>Secondary School Certificate (SSC)</p>
+            <p>School: Ajantha English medium high school</p>
+            <p>Location: Nellore, Andhra Pradesh</p>
+            <p>Year of Graduation: 2019</p>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <h3>Intermediate Board of Education</h3>
+          <div class="sub-content">
+            <p>Intermediate Board of Education</p>
+            <p>College: Narayana Junior College</p>
+            <p>Location: Nellore, Andhra Pradesh</p>
+            <p>Year of Graduation: 2021</p>
+          </div>
+        </div>
+        
+        <div class="subsection">
+          <h3>Bachelor's Degree</h3>
+          <div class="sub-content">
+            <p>Bachelor of Science in Computer Science</p>
+            <p>University: Aaditya Degree and PG College</p>
+            <p>Location: Nellore, Andhra Pradesh</p>
+            <p>Year of Graduation: Currently pursuing</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <button class="collapsible">Skills</button>
+      <div class="content">
+        <ul>
+          <li>Java</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>MySQL</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="section">
+      <button class="collapsible">Projects</button>
+      <div class="content">
+        <!-- Project 1 -->
+        <div class="project">
+          <h3>My Portfolio</h3>
+          <div class="sub-content">
+            <p>Created a comprehensive digital portfolio that reflects professional skills, projects, and achievements using HTML and CSS.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project">
+          <h3>Numeric Calculator using Java</h3>
+          <div class="sub-content">
+            <p>Created a numeric calculator which performs basic math operations using Java.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <button class="collapsible">Achievements</button>
+      <div class="content">
+        <ul>
+          <li>Completed Full Stack Developer internship course in TapAcademy Institute</li>
+          <li>Completed Core Java certification on the UDEMY platform</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let collapsibles = document.querySelectorAll(".collapsible");
+
+      collapsibles.forEach(function(collapsible) {
+        collapsible.addEventListener("click", function() {
+          this.classList.toggle("active");
+          let content = this.nextElementSibling;
+
+          
+          if (content.style.maxHeight){
+            content.style.maxHeight = null; 
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+
+          
+          adjustContainerHeight();
+        });
+      });
+
+      
+      function adjustContainerHeight() {
+        let container = document.querySelector(".container");
+        let sections = document.querySelectorAll(".section");
+        let totalHeight = 0;
+        
+        sections.forEach(function(section) {
+          let content = section.querySelector(".content");
+          
+          content.style.maxHeight = "none";
+          totalHeight += section.offsetHeight;
+          
+          content.style.maxHeight = null;
+        });
+
+        container.style.height = totalHeight + "px";
+      }
+
+      
+      adjustContainerHeight(); 
+    });
+  </script>
+</body>
+</html>
